@@ -11,7 +11,7 @@
 
 (defn display-lipsum [num-p num-s]
   [:div.lipsum
-   (let [lipsum (shuffle quotes/lines)
+   (let [lipsum (shuffle (set quotes/lines))
          num-p (js/parseInt num-p)
          num-s (js/parseInt num-s)
          paragraphs (partition-all num-s lipsum)]
