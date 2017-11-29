@@ -10,7 +10,8 @@
 (defonce num-sentences (r/atom 1))
 
 (defn display-lipsum [num-p num-s]
-  [:div.lipsum
+  [:div
+   {:class "translucent"}
    (let [lipsum (shuffle (set quotes/lines))
          num-p (js/parseInt num-p)
          num-s (js/parseInt num-s)
@@ -26,12 +27,14 @@
 (defn home-page []
   [:div
    [:h2 "Welcome to Bob Ross Lipsum"]
-   [:div.num-paragraphs
+   [:div
+    {:class "translucent"}
     "Number of paragraphs: "
     [:input {:type "text"
              :value @num-paragraphs
              :on-change #(reset! num-paragraphs (-> % .-target .-value))}]]
-   [:div.num-sentences
+   [:div
+    {:class "translucent"}
     "Number of sentences "
     [:input {:type "text"
              :value @num-sentences
