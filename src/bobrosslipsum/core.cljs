@@ -2,6 +2,7 @@
     (:require
       [reagent.core :as r]
       [clojure.string :as str]
+      [cljsjs.clipboard :as clipboard]
       [bobrosslipsum.quotes :as quotes]))
 
 ;; -------------------------
@@ -11,7 +12,8 @@
 
 (defn display-lipsum [num-p num-s]
   [:div
-   {:class "translucent"
+   {:id "lipsum-text"
+    :class "translucent"
     :style {:max-width "600px"
             :margin-left "auto"
             :margin-right "auto"}}
@@ -24,6 +26,23 @@
          ^{:key (str "paragraph" p)}
          [:p
           (str/join " " p)])))])
+
+(defn clipboard-button [label target]
+  (let [clipboard-atom (atom nil)]
+    (r/create-class
+     {:display-name "clipboard-button"
+      :component-did-mount
+      #(let [clipboard (new js/Clipboard (r/dom-node %))]
+         (reset! clipboard-atom clipboard))
+      :component-will-unmount
+      #(when-not (nil? @clipboard-atom)
+         (.destroy @clipboard-atom)
+         (reset! clipboard-atom nil))
+      :reagent-render
+      (fn []
+        [:button.clipboard
+         {:data-clipboard-target target}
+         label])})))
 
 ;; -------------------------
 ;; Views
@@ -48,8 +67,14 @@
       [:td {:style {:text-align "right"}} "Number of paragraphs:"]
       [:td [:input {:type "text"
              :value @num-sentences
-             :on-change #(reset! num-sentences (-> % .-target .-value))}]]]]]
-   (display-lipsum @num-paragraphs @num-sentences)])
+             :on-change #(reset! num-sentences (-> % .-target .-value))}]]]
+     [:tr
+      [:td
+       {:col-span 2
+        :style {:text-align "center"}}
+       [clipboard-button "Copy to Happy Little Clipboard" "#lipsum-text"]]]]]
+   (display-lipsum @num-paragraphs @num-sentences)
+   ])
 
 ;; -------------------------
 ;; Initialize app

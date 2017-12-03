@@ -10,9 +10,9 @@ body {
 	vertical-align: baseline;
   background-color: #425528;
 	background-image: url("../bg.jpg");
-  background-position: center;
-  background-attachment: scroll;
-  background-repeat: space;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /**
@@ -109,7 +109,7 @@ input[type=text] {padding:5px; border:2px solid #ccc;
 input[type=text]:focus {border-color:#333; }
 
 .translucent {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.75);
 	border: 1px solid #ededed;
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -120,7 +120,7 @@ input[type=text]:focus {border-color:#333; }
 	width: 100%;
 }
 
-a.button {
+button {
     color: #6e6e6e;
     font: bold 12px Helvetica, Arial, sans-serif;
     text-decoration: none;
@@ -141,14 +141,14 @@ a.button {
     -moz-border-radius: 2px;
     margin-right: 10px;
 }
-a.button:hover {
+button:hover {
     color: #333;
     border-color: #999;
     -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
 	-webkit-box-shadow:0 2px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
-a.button:active {
+button:active {
     color: #000;
     border-color: #444;
 }
