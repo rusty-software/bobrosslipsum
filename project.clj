@@ -29,7 +29,7 @@
                        {:source-paths ["src" "env/dev/cljs"]
                         :compiler
                         {:main "bobrosslipsum.dev"
-                         :output-to "public/js/app.js"
+                         :output-to "public/js/bobrosslipsum.js"
                          :output-dir "public/js/out"
                          :asset-path   "js/out"
                          :source-map true
