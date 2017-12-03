@@ -8,8 +8,11 @@ body {
 	line-height: 1.5;
 	text-rendering: optimizeLegibility;
 	vertical-align: baseline;
+  background-color: #425528;
 	background-image: url("../bg.jpg");
-	background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  background-repeat: space;
 }
 
 /**
