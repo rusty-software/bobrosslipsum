@@ -64,7 +64,7 @@
                     :value @num-paragraphs
                     :on-change #(reset! num-paragraphs (-> % .-target .-value))}]]]
      [:tr
-      [:td {:style {:text-align "right"}} "Number of paragraphs:"]
+      [:td {:style {:text-align "right"}} "Number of sentences:"]
       [:td [:input {:type "text"
              :value @num-sentences
              :on-change #(reset! num-sentences (-> % .-target .-value))}]]]
