@@ -27,6 +27,11 @@
          [:p
           (str/join " " p)])))])
 
+(defn re-display-lipsum []
+  (let [num-p @num-paragraphs]
+    (reset! num-paragraphs 0)
+    (reset! num-paragraphs num-p)))
+
 (defn clipboard-button [label target]
   (let [clipboard-atom (atom nil)]
     (r/create-class
@@ -70,11 +75,14 @@
              :on-change #(reset! num-sentences (-> % .-target .-value))}]]]
      [:tr
       [:td
-       {:col-span 2
-        :style {:text-align "center"}}
+       {:style {:text-align "center"}}
+       [:button
+        {:on-click #(re-display-lipsum)}
+        "Different Happy Accidents"]]
+      [:td
+       {:style {:text-align "center"}}
        [clipboard-button "Copy to Happy Little Clipboard" "#lipsum-text"]]]]]
-   (display-lipsum @num-paragraphs @num-sentences)
-   ])
+   (display-lipsum @num-paragraphs @num-sentences)])
 
 ;; -------------------------
 ;; Initialize app
