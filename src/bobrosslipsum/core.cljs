@@ -10,33 +10,6 @@
 (defonce num-paragraphs (r/atom 1))
 (defonce num-sentences (r/atom 1))
 
-(defn display-lipsum [num-p num-s]
-  [:div
-   {:id "lipsum-text"
-    :class "w3-main w3-white"
-    :style {:margin-left "260px"}}
-   [:div
-    {:class "w3-container"
-     :style {:align "center"}}
-    [:h2
-     {:class "w3-text-green"}
-     "Bob says..."]
-    [:div
-     {:class "w3-display-container"}
-     [:img
-      {:src "bg.jpg"
-       :style {:width "50%"
-               :align "middle"
-               :margin-bottom "-6px"}}]]
-    (let [lipsum (shuffle (set quotes/lines))
-          num-p (js/parseInt num-p)
-          num-s (js/parseInt num-s)
-          paragraphs (partition-all num-s lipsum)]
-      (doall
-        (for [p (take num-p paragraphs)]
-          ^{:key (str "paragraph" p)}
-          [:p
-           (str/join " " p)])))]])
 
 (defn re-display-lipsum []
   (let [num-p @num-paragraphs]
@@ -90,11 +63,15 @@
   [:div
    {:class "w3-bar-block"}
    [:a {:class "w3-bar-item w3-button w3-padding-16"
-        :href "#"}
+        :href "#lipsum-text"}
+    [:i {:class "fa fa-home"}]
+    " Home"]
+   [:a {:class "w3-bar-item w3-button w3-padding-16"
+        :href "#about"}
     [:i {:class "fa fa-user"}]
     " About"]
    [:a {:class "w3-bar-item w3-button w3-padding-16"
-        :href "#"}
+        :href "#contact"}
     [:i {:class "fa fa-envelope"}]
     " Contact"]]
   )
@@ -106,14 +83,76 @@
             :width "260px"}
     :id "inputs"}
    [inputs]
-   [page-links]]
-  )
-;; -------------------------
-;; Views
+   [page-links]])
+
+(defn display-lipsum [num-p num-s]
+  [:div
+   {:id "lipsum-text"
+    :class "w3-container"}
+   [:h2
+    {:class "w3-text-green"}
+    "Bob says..."]
+   (let [lipsum (shuffle (set quotes/lines))
+         num-p (js/parseInt num-p)
+         num-s (js/parseInt num-s)
+         paragraphs (partition-all num-s lipsum)]
+     (doall
+       (for [p (take num-p paragraphs)]
+         ^{:key (str "paragraph" p)}
+         [:p
+          (str/join " " p)])))])
+
+(defn about []
+  [:div
+   {:id "about"
+    :class "w3-container"}
+   [:h2 "About"]
+   [:p
+    "For a brief time in late 2017, a light was dimmed on the Internet. That light was:"]
+   [:a
+    {:href "http://bobrosslipsum.com/"
+     :target "_blank"}
+    "http://bobrosslipsum.com/"]
+   [:p
+    "My team and I relied on that site's inspiration to help keep us focused and motivated throughout each and every
+    workday. When it stopped working, I considered it a happy accident, and spent a weekend standing up this site as an
+    alternative. It's full of quotes I gathered from re-watching episodes on youtube."]
+   [:p
+    "Shortly after completing initial work on the site, bobrosslipsum.com was working again, good as new. I've chosen
+    to keep this site up and running for the time being, because the Internet can use all of the Bob Ross it can get!"]
+   [:p
+    "One last thing: this site is open-source. Have a look at the following github link if you want to see how it's
+    implemented. Happy coding!"]
+   [:a
+    {:href "https://github.com/rusty-software/bobrosslipsum"
+     :target "_blank"}
+    "https://github.com/rusty-software/bobrosslipsum"]])
+
+(defn contact []
+  [:div
+   {:id "contact"
+    :class "w3-container"}
+   [:h2 "Contact"]
+   [:p
+    "If you'd like more information regarding this site, drop us a line at:"]
+   [:a
+    {:href "mailto:info@bobrosslipsum.net"}
+    "info@bobrosslipsum.net"]])
+
+(defn content []
+  [:div
+   {:class "w3-main w3-white"
+    :style {:margin-left "260px"}}
+   [display-lipsum @num-paragraphs @num-sentences]
+   [:hr]
+   [about]
+   [:hr]
+   [contact]])
+
 (defn home-page []
   [:div
    [sidebar]
-   [display-lipsum @num-paragraphs @num-sentences]])
+   [content]])
 
 ;; -------------------------
 ;; Initialize app
