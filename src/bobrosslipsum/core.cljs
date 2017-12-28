@@ -10,7 +10,6 @@
 (defonce num-paragraphs (r/atom 1))
 (defonce num-sentences (r/atom 1))
 
-
 (defn re-display-lipsum []
   (let [num-p @num-paragraphs]
     (reset! num-paragraphs 0)
@@ -73,8 +72,7 @@
    [:a {:class "w3-bar-item w3-button w3-padding-16"
         :href "#contact"}
     [:i {:class "fa fa-envelope"}]
-    " Contact"]]
-  )
+    " Contact"]])
 
 (defn sidebar []
   [:nav
@@ -143,11 +141,12 @@
   [:div
    {:class "w3-main w3-white"
     :style {:margin-left "260px"}}
-   [display-lipsum @num-paragraphs @num-sentences]
+   (display-lipsum @num-paragraphs @num-sentences)
    [:hr]
    [about]
    [:hr]
-   [contact]])
+   [contact]
+   [:hr]])
 
 (defn home-page []
   [:div
