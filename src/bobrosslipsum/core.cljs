@@ -85,20 +85,21 @@
 
 (defn display-lipsum [num-p num-s]
   [:div
-   {:id "lipsum-text"
-    :class "w3-container"}
+   {:class "w3-container"}
    [:h2
     {:class "w3-text-green"}
     "Bob says..."]
-   (let [lipsum (shuffle (set quotes/lines))
-         num-p (js/parseInt num-p)
-         num-s (js/parseInt num-s)
-         paragraphs (partition-all num-s lipsum)]
-     (doall
-       (for [p (take num-p paragraphs)]
-         ^{:key (str "paragraph" p)}
-         [:p
-          (str/join " " p)])))])
+   [:div
+    {:id "lipsum-text"}
+    (let [lipsum (shuffle (set quotes/lines))
+          num-p (js/parseInt num-p)
+          num-s (js/parseInt num-s)
+          paragraphs (partition-all num-s lipsum)]
+      (doall
+        (for [p (take num-p paragraphs)]
+          ^{:key (str "paragraph" p)}
+          [:p
+           (str/join " " p)])))]])
 
 (defn about []
   [:div
