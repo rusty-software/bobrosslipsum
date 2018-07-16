@@ -441,7 +441,7 @@
    "Whatever works is good."
    ;; Series 27, Episode 11
    "Let's do a winter scene, what the heck."
-   "Maybe I'll have a bit mountain today."
+   "Maybe I'll have a big mountain today."
    "Life's wonderful, isn't it?"
    "Let's make a wild mountain today."
    "If we make a boo-boo, it's right here -- but that's alright, because we don't make mistakes in our world."
