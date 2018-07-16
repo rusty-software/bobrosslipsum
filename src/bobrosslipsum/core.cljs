@@ -138,9 +138,10 @@
     :class "w3-container"}
    [:h2 "Sample"]
    [:p
-    "Although the default output when you load this page is a single sentence, the site is intended to be a fully
-    functional lorem ipsum generator. The following ten paragraphs are an example of the output that might be generated
-    by entering 10 as the number of paragraphs and 5 as the number of sentences."]
+    [:i
+     "Although the default output when you load this page is a single sentence, the site is intended to be a fully
+     functional lorem ipsum generator. The following ten paragraphs are an example of the output that might be generated
+     by entering 10 as the number of paragraphs and 5 as the number of sentences."]]
    [:p
     "We'll make some big ol' huge mountains! There's too many complicated things in our life already. All you're worried
     about is this nice outside shape. Always follow the angles. Don't just cover it all up -- leave these spots!"]
