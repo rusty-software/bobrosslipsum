@@ -4,10 +4,10 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.946"]
-                 [cljsjs/clipboard "1.6.1-1"]
-                 [reagent "0.7.0"]]
+  :dependencies [[org.clojure/clojure "1.9.0"]
+                 [org.clojure/clojurescript "1.10.339"]
+                 [cljsjs/clipboard "2.0.1-2"]
+                 [reagent "0.8.1"]]
 
   :plugins [[lein-cljsbuild "1.1.5"]
             [lein-figwheel "0.5.14"]]
@@ -50,7 +50,7 @@
 
   :aliases {"package" ["do" "clean" ["cljsbuild" "once" "release"]]}
 
-  :profiles {:dev {:dependencies [[binaryage/devtools "0.9.7"]
-                                  [figwheel-sidecar "0.5.14"]
+  :profiles {:dev {:dependencies [[binaryage/devtools "0.9.10"]
+                                  [figwheel-sidecar "0.5.17"]
                                   [org.clojure/tools.nrepl "0.2.13"]
                                   [com.cemerick/piggieback "0.2.2"]]}})
