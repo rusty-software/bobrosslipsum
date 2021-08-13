@@ -1,13 +1,24 @@
 (ns bobrosslipsum.quotes)
 
 (def lines
-  [;; Series 1, Episode 2
+  [;; Series 1, Episode 1
+   "I think each of us, at some point during our life, has wanted to paint a picture."
+   "We start with a vision in our heart, and we put it on canvas."
+   "These little son-of-a-guns hide in your brush, and you just have to push them out."
+   "You can do it! I know you can!"
+   "Beauty is everywhere; you only have to look to see it."
+   ;; Series 1, Episode 2
    "Sometimes the brush is lazy."
+   "Just sorta let this brush dance and play and have fun."
    "This is the lazy man's way of painting."
+   "We don't wanna take it out; we just wanna mix it up."
    "Use what happens naturally."
    "Don't want to set these clouds on fire."
    "You can end up with great big cotton balls in the sky if you're not careful."
    "Learn to control it."
+   "Dance in all these areas and just let 'em play in the sky."
+   "Every highlight needs its own private shadow."
+   "Scary to have this much power -- that you can move mountains!"
    ;; Series 1, Episode 4
    "Make big billowy, fluffy clouds."
    "Just sorta work it around and around here."
