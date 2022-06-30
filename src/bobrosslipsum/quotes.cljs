@@ -42,6 +42,14 @@
    "Always doing the things furthest away first and working forward."
    "Always follow the angles here."
    "It's cold, but it's beautiful."
+   ;; Series 1, Episode 5
+   "Just sort of running through the woods here."
+   "Just work it around and around and around."
+   "Just let it blend up."
+   "No use stopping, we're so much fun here with these trees!"
+   "Make all kinds of little tree things happen."
+   "They all hide here in your fan brush."
+   "Just let it sort of flow."
    ;; Series 2, Episode 1
    "See how easy that was?"
    "It's very easy to make a sky darker, but it's a son of a gun to make it lighter."
