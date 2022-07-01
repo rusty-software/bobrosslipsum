@@ -197,7 +197,6 @@
 
 (defn home-page []
   [:div
-   [:p "my butt"]
    [sidebar]
    [content]])
 
