@@ -1,13 +1,38 @@
 (ns bobrosslipsum.quotes)
 
 (def lines
-  [;; Series 1, Episode 2
+  [;; Series 1, Episode 1
+   "I think each of us, at some point during our life, has wanted to paint a picture."
+   "We start with a vision in our heart, and we put it on canvas."
+   "These little son-of-a-guns hide in your brush, and you just have to push them out."
+   "You can do it! I know you can!"
+   "Beauty is everywhere; you only have to look to see it."
+   ;; Series 1, Episode 2
    "Sometimes the brush is lazy."
+   "Just sorta let this brush dance and play and have fun."
    "This is the lazy man's way of painting."
+   "We don't wanna take it out; we just wanna mix it up."
    "Use what happens naturally."
    "Don't want to set these clouds on fire."
    "You can end up with great big cotton balls in the sky if you're not careful."
    "Learn to control it."
+   "Dance in all these areas and just let 'em play in the sky."
+   "Every highlight needs its own private shadow."
+   "Scary to have this much power -- that you can move mountains!"
+   ;; Series 1, Episode 3
+   "Just around the edges."
+   "We'll just have a beautiful glow in the sky."
+   "Always start with the color in here and then work outward."
+   "Just enough to take out the brushstrokes."
+   "Just enough to give it an upward swirl."
+   "Trees get lonely too, so we'll give him a friend."
+   "Let's start with some almighty trees and stuff."
+   "Use your imagination; let it go!"
+   "Now we're ready to put some highlights on these little leaves out here."
+   "Such a temptation to do a little bit more."
+   "A little bit more of the magic, just to thin it down a touch."
+   "Of course he's a happy little stone; we don't have any other kind!"
+   "It's extremely, extremely effective."
    ;; Series 1, Episode 4
    "Make big billowy, fluffy clouds."
    "Just sorta work it around and around here."
@@ -17,6 +42,14 @@
    "Always doing the things furthest away first and working forward."
    "Always follow the angles here."
    "It's cold, but it's beautiful."
+   ;; Series 1, Episode 5
+   "Just sort of running through the woods here."
+   "Just work it around and around and around."
+   "Just let it blend up."
+   "No use stopping, we're so much fun here with these trees!"
+   "Make all kinds of little tree things happen."
+   "They all hide here in your fan brush."
+   "Just let it sort of flow."
    ;; Series 2, Episode 1
    "See how easy that was?"
    "It's very easy to make a sky darker, but it's a son of a gun to make it lighter."

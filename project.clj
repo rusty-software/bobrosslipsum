@@ -4,13 +4,14 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.10.339"]
-                 [cljsjs/clipboard "2.0.1-2"]
-                 [reagent "0.8.1"]]
+  :dependencies [[org.clojure/clojure "1.10.1"]
+                 [org.clojure/clojurescript "1.10.597"]
+                 [cljsjs/clipboard "2.0.4-0"]
+                 [reagent "0.10.0"]
+                 [figwheel "0.5.19"]]
 
-  :plugins [[lein-cljsbuild "1.1.5"]
-            [lein-figwheel "0.5.14"]]
+  :plugins [[lein-cljsbuild "1.1.7"]
+            [lein-figwheel "0.5.19"]]
 
   :min-lein-version "2.5.0"
 
@@ -26,31 +27,26 @@
              :nrepl-middleware ["cemerick.piggieback/wrap-cljs-repl"]
              :css-dirs ["public/css"]}
 
-  :cljsbuild {:builds {:app
-                       {:source-paths ["src" "env/dev/cljs"]
-                        :compiler
-                        {:main "bobrosslipsum.dev"
-                         :output-to "public/js/bobrosslipsum.js"
-                         :output-dir "public/js/out"
-                         :asset-path   "js/out"
-                         :source-map true
-                         :optimizations :none
-                         :pretty-print  true}
-                        :figwheel
-                        {:on-jsload "bobrosslipsum.core/mount-root"
-                         :open-urls ["http://localhost:3449/index.html"]}}
-                       :release
-                       {:source-paths ["src" "env/prod/cljs"]
-                        :compiler
-                        {:output-to "public/js/bobrosslipsum.js"
-                         :output-dir "public/js/release"
-                         :asset-path   "js/out"
-                         :optimizations :advanced
-                         :pretty-print false}}}}
+  :cljsbuild {:builds {:app {:source-paths ["src" "env/dev/cljs"]
+                             :compiler {:main "bobrosslipsum.dev"
+                                        :output-to "public/js/bobrosslipsum.js"
+                                        :output-dir "public/js/out"
+                                        :asset-path   "js/out"
+                                        :source-map true
+                                        :optimizations :none
+                                        :pretty-print  true}
+                             :figwheel {:on-jsload "bobrosslipsum.core/mount-root"
+                                        :open-urls ["http://localhost:3449/index.html"]}}
+                       :release {:source-paths ["src" "env/prod/cljs"]
+                                 :compiler {:output-to "public/js/bobrosslipsum.js"
+                                            :output-dir "public/js/release"
+                                            :asset-path   "js/out"
+                                            :optimizations :advanced
+                                            :pretty-print false}}}}
 
   :aliases {"package" ["do" "clean" ["cljsbuild" "once" "release"]]}
 
-  :profiles {:dev {:dependencies [[binaryage/devtools "0.9.10"]
-                                  [figwheel-sidecar "0.5.17"]
+  :profiles {:dev {:dependencies [[binaryage/devtools "0.9.7"]
+                                  [figwheel-sidecar "0.5.19"]
                                   [org.clojure/tools.nrepl "0.2.13"]
                                   [com.cemerick/piggieback "0.2.2"]]}})

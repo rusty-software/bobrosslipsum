@@ -1,8 +1,8 @@
 (ns bobrosslipsum.core
     (:require
       [reagent.core :as r]
+      [reagent.dom :as rdom]
       [clojure.string :as str]
-      [cljsjs.clipboard :as clipboard]
       [bobrosslipsum.quotes :as quotes]))
 
 ;; -------------------------
@@ -14,24 +14,6 @@
   (let [num-p @num-paragraphs]
     (reset! num-paragraphs 0)
     (reset! num-paragraphs num-p)))
-
-(defn clipboard-button [label target]
-  (let [clipboard-atom (atom nil)]
-    (r/create-class
-     {:display-name "clipboard-button"
-      :component-did-mount
-      #(let [clipboard (new js/Clipboard (r/dom-node %))]
-         (reset! clipboard-atom clipboard))
-      :component-will-unmount
-      #(when-not (nil? @clipboard-atom)
-         (.destroy @clipboard-atom)
-         (reset! clipboard-atom nil))
-      :reagent-render
-      (fn []
-        [:button.clipboard
-         {:class "w3-button w3-block w3-green"
-          :data-clipboard-target target}
-         label])})))
 
 (defn inputs []
   [:div
@@ -54,9 +36,7 @@
      [:button
         {:class "w3-button w3-block w3-green"
          :on-click #(re-display-lipsum)}
-        "Let's Get Crazy"]]
-    [:p
-     [clipboard-button "Clipboard It" "#lipsum-text"]]])
+        "Let's Get Crazy"]]])
 
 (defn page-links []
   [:div
@@ -217,13 +197,15 @@
 
 (defn home-page []
   [:div
+   [:p "my butt"]
    [sidebar]
    [content]])
 
 ;; -------------------------
 ;; Initialize app
-(defn mount-root []
-  (r/render [home-page] (.getElementById js/document "app")))
+(defn ^:export mount-root []
+  (rdom/render [home-page] (.getElementById js/document "app"))
+  )
 
 (defn init! []
   (mount-root))
